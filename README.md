@@ -17,13 +17,20 @@ frontend-jhonatan	Aplicación React Vite que consume la API y muestra productos 
 Estructura del proyecto
 Código
 
-├── docker-compose.yml
+├── docker-compose.yml 
+
 ├── API/
+
 │   ├── .env
+
 │   └── Dockerfile
+
 ├── front/
+
 │   ├── .env
+
 │   ├── Dockerfile
+
 │   └── src...
 
 Comandos para levantar el entorno
