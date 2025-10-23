@@ -36,8 +36,8 @@ Código
 Comandos para levantar el entorno
 
 # 1. Clonar el repositorio
-git clone [URL_DEL_REPOSITORIO]
-cd mi_repositorio
+git clone https://github.com/Jhonatan32234/DOCKER_COMPOSE.git
+cd DOCKER_COMPOSE
 
 # 2. Construir y levantar los contenedores
 docker-compose up --build
