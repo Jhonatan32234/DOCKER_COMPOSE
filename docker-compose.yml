@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  mysql-jhonatan:
+    image: mysql:8.0
+    container_name: mysql-jhonatan
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: jhonatan_db
+      MYSQL_USER: jhonatan
+      MYSQL_PASSWORD: jhonpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - internal_net
+
+  api-jhonatan:
+    build:
+      context: ./API
+    container_name: api-jhonatan
+    depends_on:
+      - mysql-jhonatan
+    env_file:
+      - ./API/.env
+    ports:
+      - "8000:8000"
+    networks:
+      - internal_net
+
+  frontend-jhonatan:
+    build:
+      context: ./front
+    container_name: frontend-jhonatan
+    depends_on:
+      - api-jhonatan
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./front/.env
+    networks:
+      - internal_net
+
+volumes:
+  mysql_data:
+
+networks:
+  internal_net:
+    driver: bridge
