@@ -54,6 +54,7 @@ docker-compose down o simplemente CRTL+C para detener el proceso
 
 # Volver a levantar (los datos deben persistir)
 docker-compose up
+
 Comunicación entre servicios
 El frontend se comunica con la API usando la variable VITE_API_URL definida en .env
 
